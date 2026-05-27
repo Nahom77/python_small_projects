@@ -16,18 +16,17 @@ Both arrays will be in the format: [e1, e2, e3, ...] where at least one element 
 '''
 
 
-def array_matching(str):
-    l1 = [int(i) for i in str[0][1:-1].split(',')]
-    l2 = [int(i) for i in str[1][1:-1].split(',')]
+def array_matching(strArr):
+    l1 = [int(i) for i in strArr[0][1:-1].split(',')]
+    l2 = [int(i) for i in strArr[1][1:-1].split(',')]
 
     if len(l1) != len(l2):
         n = max(len(l1), len(l2))
         l1.extend([0] * (n - len(l1)))
         l2.extend([0] * (n - len(l2)))
-
     res = [str(a+b) for a, b in zip(l1, l2)]
 
     return "-".join(res)
 
 
-array_matching(['[1,2,3]'])
+print(array_matching(['[1,2,3]', '[2,3,4,5]']))
